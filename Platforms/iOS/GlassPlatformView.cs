@@ -8,7 +8,7 @@ using UIKit;
 
 namespace maui_glass.Platforms.iOS;
 
-public class GlassPlatformView : UIView, IAVCaptureMetadataOutputObjectsDelegate
+public class GlassPlatformView : UIView
 {
     private AVCaptureSession _captureSession;
     private AVCaptureVideoPreviewLayer _videoPreviewLayer;
@@ -34,9 +34,13 @@ public class GlassPlatformView : UIView, IAVCaptureMetadataOutputObjectsDelegate
 
         var captureMetadataOutput = new AVCaptureMetadataOutput();
         _captureSession.AddOutput(captureMetadataOutput);
-        captureMetadataOutput.SetDelegate(this, DispatchQueue.MainQueue);
         captureMetadataOutput.MetadataObjectTypes = AVMetadataObjectType.QRCode;
+        var capturedQRCodesDelegate = new CaptureQRCodeObjectsDelegate(qrCode =>
+        {
+            this._control.StatusText = qrCode;
+        });
 
+        captureMetadataOutput.SetDelegate(capturedQRCodesDelegate, DispatchQueue.MainQueue);
 
 
         _videoPreviewLayer = new AVCaptureVideoPreviewLayer(_captureSession);
