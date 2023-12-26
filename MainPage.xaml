@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:maui_glass.Controls"
              x:Class="maui_glass.MainPage">
 
     <ScrollView>
@@ -9,6 +10,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <controls:GlassControl StatusText="{Binding StatusText}"
+                />
             <Label Grid.Row="1"
                 Text="{Binding StatusText}"
                 Style="{StaticResource SubHeadline}"
