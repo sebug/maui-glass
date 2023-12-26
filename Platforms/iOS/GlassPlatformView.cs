@@ -14,8 +14,11 @@ public class GlassPlatformView : UIView
     private AVCaptureVideoPreviewLayer _videoPreviewLayer;
     private UIView? _frameView;
 
+    private IGlassControl _control;
+
     public GlassPlatformView(IGlassControl glassControl)
     {
+        _control = glassControl;
         _captureSession = new AVCaptureSession();
 
         var captureDevice = AVCaptureDevice.GetDefaultDevice(
@@ -31,8 +34,8 @@ public class GlassPlatformView : UIView
         _videoPreviewLayer = new AVCaptureVideoPreviewLayer(_captureSession);
         _videoPreviewLayer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
         
-        var width = UIScreen.MainScreen.Bounds.Width;
-        var height = UIScreen.MainScreen.Bounds.Height;
+        var width = UIScreen.MainScreen.Bounds.Width * 2;
+        var height = UIScreen.MainScreen.Bounds.Height * 2;
         _frameView = new UIView()
         {
             Frame = new CGRect(0f, 0f, width, height)
