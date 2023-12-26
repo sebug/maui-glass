@@ -10,7 +10,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="1"
-                Text="Feedback Text"
+                Text="{Binding StatusText}"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
         </Grid>
