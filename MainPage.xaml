@@ -10,8 +10,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <!--<controls:GlassControl StatusText="{Binding StatusText}"
-                /> -->
+            <controls:GlassControl StatusText="{Binding StatusText}"
+                />
             <Label Grid.Row="1"
                 Text="{Binding StatusText}"
                 Style="{StaticResource SubHeadline}"

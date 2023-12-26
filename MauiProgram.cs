@@ -1,4 +1,6 @@
-﻿using maui_glass.ViewModels;
+﻿using maui_glass.Controls;
+using maui_glass.Handlers;
+using maui_glass.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace maui_glass;
@@ -16,7 +18,11 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			})
 			.RegisterViewModels()
-			.RegisterViews();
+			.RegisterViews()
+			.ConfigureMauiHandlers(handlers =>
+			{
+				handlers.AddHandler(typeof(GlassControl), typeof(GlassControlHandler));
+			});
 
 #if DEBUG
 		builder.Logging.AddDebug();

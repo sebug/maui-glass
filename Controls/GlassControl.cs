@@ -11,4 +11,8 @@ public class GlassControl : View, IGlassControl
         get => (string)GetValue(StatusTextProperty);
         set => SetValue(StatusTextProperty, value);
     }
+
+    public void StartVideo()
+    {
+    }
 }
