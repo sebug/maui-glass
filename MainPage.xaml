@@ -10,7 +10,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <controls:GlassControl StatusText="{Binding StatusText}"
+            <controls:GlassControl StatusText="{Binding StatusText, Mode=TwoWay}"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 BackgroundColor="LightGreen"

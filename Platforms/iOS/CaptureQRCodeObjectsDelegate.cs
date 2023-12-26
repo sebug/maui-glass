@@ -4,11 +4,8 @@ namespace maui_glass.Platforms.iOS;
 
 public class CaptureQRCodeObjectsDelegate : AVCaptureMetadataOutputObjectsDelegate
 {
-    private readonly Action<string> OnFoundQRCode;
-
-    public CaptureQRCodeObjectsDelegate(Action<string> onFoundQRCode)
+    public CaptureQRCodeObjectsDelegate()
     {
-        this.OnFoundQRCode = onFoundQRCode;
     }
 
     public override void DidOutputMetadataObjects(AVCaptureMetadataOutput captureOutput, AVMetadataObject[] metadataObjects, AVCaptureConnection connection)
@@ -18,7 +15,6 @@ public class CaptureQRCodeObjectsDelegate : AVCaptureMetadataOutputObjectsDelega
             if (metadataObjects[0] is AVMetadataMachineReadableCodeObject)
             {
                 var mr = (AVMetadataMachineReadableCodeObject)metadataObjects[0];
-                OnFoundQRCode(mr.StringValue);
             }
         }
     }
