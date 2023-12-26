@@ -36,6 +36,10 @@ public class GlassPlatformView : UIView
         _captureSession.AddOutput(captureMetadataOutput);
         captureMetadataOutput.MetadataObjectTypes = AVMetadataObjectType.QRCode;
         var capturedQRCodesDelegate = new CaptureQRCodeObjectsDelegate();
+        capturedQRCodesDelegate.QRCodeChanged += (sender, e) =>
+        {
+            _control.StatusText = e.QRCode;
+        };
 
         captureMetadataOutput.SetDelegate(capturedQRCodesDelegate, DispatchQueue.MainQueue);
 
