@@ -30,7 +30,6 @@ public class GlassPlatformView : UIView
         _captureSession.AddInput(videoInput);
         _videoPreviewLayer = new AVCaptureVideoPreviewLayer(_captureSession);
         _videoPreviewLayer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
-        _videoPreviewLayer.Frame = this.Layer.Bounds;
         this.Layer.AddSublayer(_videoPreviewLayer);
 
         DispatchQueue.GetGlobalQueue(service: DispatchQualityOfService.Background).DispatchAsync(() => {

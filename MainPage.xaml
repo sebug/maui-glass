@@ -11,6 +11,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <controls:GlassControl StatusText="{Binding StatusText}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="LightGreen"
                 />
             <Label Grid.Row="1"
                 Text="{Binding StatusText}"
